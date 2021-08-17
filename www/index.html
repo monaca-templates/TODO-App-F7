@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src * data: gap: content: https://ssl.gstatic.com; img-src * monaca-app; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#2196f3">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="stylesheet" href="framework7/framework7-bundle.min.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="components/loader.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main ios-edges">
+      <!-- Page, data-name contains page name which can be used in callbacks -->
+      <div class="page" data-name="home">
+        <div class="navbar">
+          <div class="navbar-bg"></div>
+          <div class="navbar-inner">
+            <div class="title sliding">TODO App</div>
+            <a class="right button button-raised button-round popup-open margin-right" data-popup="#add-popup" href="#">
+              <i class="f7-icons">plus</i>
+              Add
+            </a>
+          </div>
+        </div>
+        <div class="page-content">
+          <div id="todo-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="add-popup">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="left">
+                <!-- Link to close popup -->
+                <a class="link popup-close" href="#">
+                  <i class="f7-icons">chevron_left</i>
+                  Back
+                </a>
+              </div>
+              <div class="title">Add TODO</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="list no-hairlines-md">
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">TODO title</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="todo-title" placeholder="Title" />
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Description</div>
+                    <div class="item-input-wrap">
+                      <input type="text" id="todo-body" placeholder="Description" />
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+                <li id="select-pic" class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Image</div>
+                    <div class="item-input-wrap">
+                      <input type="file" id="pic-file" name="pic-file" accept="image/*, image/jpeg" placeholder="Select an image"  onchange="savePic(event)">
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="row">
+              <div class="col-20"></div>
+              <button class="col-60 button button-outline button-round button-raised margin-bottom popup-close" onclick="addTodo()">Save</button>
+              <div class="col-20"></div>
+            </div>
+            <div class="row">
+              <div class="col-20"></div>
+              <button id="take-pic" class="col-60 button button button-raised button-fill button-round popup-close" onclick="addTodoPicture()">Picture And Save</button>
+              <div class="col-20"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Framework7 library -->
+  <script type="text/javascript" src="framework7/framework7-bundle.min.js"></script>
+  <!-- Monaca JS library -->
+  <script src="components/loader.js"></script>
+  <!-- Your custom app scripts -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>

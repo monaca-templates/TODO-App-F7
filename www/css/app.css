@@ -1,0 +1,12 @@
+#select-pic {
+    display: none;
+}
+
+@media only screen and (min-device-width : 1024px) {
+    #take-pic {
+        display: none;
+    }
+    #select-pic {
+        display: block;
+    }
+}
