@@ -54,7 +54,7 @@ function clearInputs() {
 function savePic(event) {
   var reader = new FileReader();
   reader.onload = function () {
-    img_tag = `<img src="${reader.result}" width="100" height="100">`
+    img_tag = `<img src="${reader.result}" style="max-width:100px;width:100%">`
   }
   reader.readAsDataURL(event.target.files[0]);
 }
